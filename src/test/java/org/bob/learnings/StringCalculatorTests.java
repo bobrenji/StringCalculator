@@ -20,4 +20,20 @@ public class StringCalculatorTests {
     public void whenNonNumbersAreUsedThenThrowException() {
         stringCalculator.add("1,A");
     }
+
+    @Test
+    public void whenEmptyStringIsPassedThenReturnZero() {
+        Assert.assertEquals(0, stringCalculator.add(""));
+    }
+
+    @Test
+    public void whenOneNumberIsPassedThenReturnSameNumber() {
+        Assert.assertEquals(3, stringCalculator.add("3"));
+    }
+
+    @Test
+    public void whenTwoNumbersArePassedThenReturnSumOfIt() {
+        Assert.assertEquals(10, stringCalculator.add("5,5"));
+    }
+
 }
