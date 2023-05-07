@@ -2,6 +2,7 @@ package org.bob.learnings;
 
 public class StringCalculator {
     public int add(String inputStrings) {
+        int result = 0;
         if(inputStrings.isEmpty()) {
             return 0;
         }
@@ -9,10 +10,11 @@ public class StringCalculator {
         if(numberArray.length > 2) {
             throw new RuntimeException("Up to 2 numbers separated by comma(,) are allowed");
         } else {
-            for (String number: numberArray) {
-                Integer.parseInt(number);
+            for (String numberStr: numberArray) {
+                int number = Integer.parseInt(numberStr);
+                result += number;
             }
         }
-        return 0;
+        return result;
     }
 }
