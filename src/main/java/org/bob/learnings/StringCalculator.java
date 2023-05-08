@@ -10,7 +10,7 @@ public class StringCalculator {
         for (String numberStr: numberArray) {
             int number = Integer.parseInt(numberStr.trim());
             if(number < 0) {
-                throw new RuntimeException("Illegal number");
+                throw new RuntimeException("Negative numbers are not allowed");
             }
             result += number;
         }

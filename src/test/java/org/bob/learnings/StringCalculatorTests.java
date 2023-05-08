@@ -31,9 +31,15 @@ public class StringCalculatorTests {
     public void whenAnyNumbersOfStringThenReturnTheirSum() {
         Assert.assertEquals(10, stringCalculator.add("1,2,3,4"));
     }
-    @Test(expected = RuntimeException.class)
+    @Test
     public void whenNegativeNumbersInListThenShouldThrowException() {
-        stringCalculator.add("1,-2,-3,4");
+        RuntimeException exception = null;
+        try {
+            stringCalculator.add("1,-2,-3,4");
+        } catch (RuntimeException e) {
+            exception = e;
+        }
+        Assert.assertEquals("Negative numbers are not allowed", exception.getMessage());
     }
     @Test
     public void whenSpacesBetweenNumbersThenShouldHandleItAndReturnSum() {
