@@ -5,10 +5,6 @@ import org.junit.Test;
 
 public class StringCalculatorTests {
     StringCalculator stringCalculator = new StringCalculator();
-    @Test(expected = RuntimeException.class)
-    public void shouldThrowExceptionWhenMoreThan2numbersAreUsed() {
-        stringCalculator.add("1,2,3");
-    }
 
     @Test
     public void when2NumbersAreUsedThenNoExceptionIsThrown() {
@@ -35,5 +31,12 @@ public class StringCalculatorTests {
     public void whenTwoNumbersArePassedThenReturnSumOfIt() {
         Assert.assertEquals(10, stringCalculator.add("5,5"));
     }
-
+    @Test
+    public void whenAnyNumbersOfStringThenReturnTheirSum() {
+        Assert.assertEquals(10, stringCalculator.add("1,2,3,4"));
+    }
+    @Test(expected = RuntimeException.class)
+    public void whenNegativeNumbersInListThenShouldThrowException() {
+        stringCalculator.add("1,-2,-3,4");
+    }
 }
