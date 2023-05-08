@@ -8,7 +8,11 @@ public class StringCalculator {
         }
         String[] numberArray = inputStrings.split(",");
         for (String numberStr: numberArray) {
-            result += Integer.parseInt(numberStr);
+            int number = Integer.parseInt(numberStr.trim());
+            if(number < 0) {
+                throw new RuntimeException("Illegal number");
+            }
+            result += number;
         }
         return result;
     }
